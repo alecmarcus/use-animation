@@ -1,0 +1,69 @@
+{
+  "name": "@alecmarcus/use-animation",
+  "version": "0.9.0",
+  "description": "Simple hooks-based React animations.",
+  "license": "GPL-3.0-or-later",
+  "author": "Alec Marcus <alec@alecmarc.us> (https://alecmarc.us)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alecmarcus/use-animation.git"
+  },
+  "keywords": [
+    "hooks",
+    "animation",
+    "react",
+    "typescript"
+  ],
+  "scripts": {
+    "build": "rollup -c --environment NODE_ENV:production",
+    "build:watch": "rollup -c -w",
+    "prepare": "yarn build"
+  },
+  "main": "dist/cjs",
+  "module": "dist/esm",
+  "types": "dist/esm/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    "require": "./dist/cjs/index.js",
+    "import": "./dist/esm/index.js"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@types/react": "^17.0.37",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "esbuild": "^0.14.1",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "7.0.4",
+    "lint-staged": "12.1.2",
+    "prettier": "^2.5.0",
+    "rollup": "^2.60.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}
